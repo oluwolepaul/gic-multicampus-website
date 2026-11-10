@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Find Your Community — Grace International Church</title>
+<meta name="description" content="Explore ministries for children, youth, women, men, and worship at Grace International Church. Find ways to connect and get involved."/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--lw-navy:#0C1F3F;--lw-navy-dark:#081530;--lw-blue:#1B6FBF;--lw-blue-hover:#155499;--lw-blue-light:#EEF5FC;--lw-white:#FFFFFF;--lw-gray-100:#F2F4F7;--lw-gray-900:#101828;--lw-text:#1D2939;--lw-text-light:#475467;--lw-border:#E4E7EC;--lw-gray-500:#667085;--font:'Nunito Sans','Helvetica Neue',Arial,sans-serif;--font-display:'Nunito','Helvetica Neue',Arial,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--lw-white);color:var(--lw-text);font-size:16px;line-height:1.6;}
+.topbar{background:#000;padding:8px 0;text-align:center;font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);}
+.topbar a{color:#7FB8F0;text-decoration:none;}
+.nav-wrap{background:var(--lw-navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.18);}
+nav{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:72px;}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+.nav-logo-img{height:48px;width:auto;object-fit:contain;}
+.nav-logo-fallback{display:none;font-family:var(--font-display);font-size:20px;font-weight:900;color:#fff;}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.nav-links a{display:block;padding:8px 14px;font-size:14px;font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;border-radius:6px;transition:background .15s,color .15s;}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.1);color:#fff;}
+.nav-links li{position:relative;}
+.nav-links li.has-dropdown>a::after{content:'';display:inline-block;width:0;height:0;margin-left:6px;vertical-align:middle;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid rgba(255,255,255,.7);transition:transform .2s;}
+.nav-links li.has-dropdown:hover>a::after{transform:rotate(180deg);}
+.nav-dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:200px;background:#0C1F3F;border:1px solid rgba(255,255,255,.12);border-radius:8px;box-shadow:0 12px 40px rgba(0,0,0,.35);padding:6px 0;z-index:300;list-style:none;}
+.nav-links li.has-dropdown:hover .nav-dropdown{display:block;}
+.nav-dropdown li a{display:flex;align-items:center;gap:10px;padding:11px 18px;font-size:14px;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;border-left:3px solid transparent;transition:all .15s;white-space:nowrap;}
+.nav-dropdown li a:hover{background:rgba(255,255,255,.08);color:#fff;border-left-color:#1B6FBF;}
+.nav-dropdown::before{content:'';position:absolute;top:-6px;left:18px;width:10px;height:10px;background:#0C1F3F;border-left:1px solid rgba(255,255,255,.12);border-top:1px solid rgba(255,255,255,.12);transform:rotate(45deg);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-nav-give{background:var(--lw-blue);color:#fff;font-size:14px;font-weight:700;padding:10px 22px;border-radius:6px;text-decoration:none;transition:background .15s;}
+.btn-nav-give:hover{background:var(--lw-blue-hover);}
+.btn-nav-watch{background:transparent;border:2px solid rgba(255,255,255,.35);color:#fff;font-size:14px;font-weight:700;padding:8px 20px;border-radius:6px;text-decoration:none;transition:all .15s;}
+.btn-nav-watch:hover{border-color:rgba(255,255,255,.8);}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:transparent;border:1.5px solid rgba(255,255,255,.3);border-radius:6px;cursor:pointer;padding:0;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:all .3s;transform-origin:center;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;pointer-events:none;}
+.mobile-nav.open{pointer-events:all;}
+.mobile-nav-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s;}
+.mobile-nav.open .mobile-nav-overlay{opacity:1;}
+.mobile-nav-drawer{position:absolute;top:0;right:0;width:min(320px,88vw);height:100%;background:var(--lw-navy);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto;}
+.mobile-nav.open .mobile-nav-drawer{transform:translateX(0);}
+.mobile-nav-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.1);}
+.mobile-nav-logo{font-family:var(--font-display);font-size:18px;font-weight:900;color:#fff;}
+.mobile-nav-logo span{color:#7FB8F0;}
+.mobile-nav-close{width:36px;height:36px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.mobile-nav-links{list-style:none;padding:12px 0;flex:1;}
+.mobile-nav-links li a{display:block;padding:14px 24px;font-size:16px;font-weight:700;color:rgba(255,255,255,.88);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
+.mobile-nav-links li a:hover,.mobile-nav-links li a.active{background:rgba(255,255,255,.07);color:#fff;border-left-color:var(--lw-blue);}
+.mobile-nav-links li.mob-has-dropdown>a{display:flex;align-items:center;justify-content:space-between;}
+.mob-dd-arrow{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;font-size:12px;color:rgba(255,255,255,.5);transition:transform .25s;}
+.mobile-nav-links li.mob-has-dropdown.open>a .mob-dd-arrow{transform:rotate(180deg);}
+.mob-submenu{list-style:none;max-height:0;overflow:hidden;transition:max-height .3s;background:rgba(0,0,0,.2);}
+.mobile-nav-links li.mob-has-dropdown.open .mob-submenu{max-height:200px;}
+.mob-submenu li a{display:flex;align-items:center;gap:10px;padding:12px 24px 12px 36px;font-size:14px;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
+.mob-submenu li a:hover{background:rgba(255,255,255,.05);color:#fff;border-left-color:var(--lw-blue);}
+.mobile-nav-footer{padding:20px 24px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:10px;}
+.mobile-nav-footer a{display:block;text-align:center;padding:13px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;}
+.mobile-btn-watch{border:2px solid rgba(255,255,255,.35);color:#fff;}
+.mobile-btn-give{background:var(--lw-blue);color:#fff;}
+.mobile-nav-contact{padding:0 24px 24px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.8;}
+.mobile-nav-contact a{color:#7FB8F0;text-decoration:none;}
+
+/* PAGE HERO */
+.page-hero{padding:80px 0 72px;position:relative;overflow:hidden;}
+.page-hero-inner{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+.hero-bg-svg{position:absolute;right:0;top:0;bottom:0;width:48%;opacity:.08;pointer-events:none;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:16px;}
+.breadcrumb a{color:#7FB8F0;text-decoration:none;}
+.breadcrumb-sep{color:rgba(255,255,255,.3);}
+.page-eyebrow{display:inline-block;background:var(--lw-blue);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:4px;margin-bottom:16px;}
+.page-h1{font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:16px;}
+.page-sub{font-size:18px;color:rgba(255,255,255,.75);max-width:540px;line-height:1.65;}
+
+/* SHARED */
+.section{padding:80px 0;}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 32px;}
+.section-label{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lw-blue);margin-bottom:10px;}
+.section-h2{font-family:var(--font-display);font-size:clamp(26px,4vw,40px);font-weight:900;color:var(--lw-gray-900);line-height:1.15;letter-spacing:-.02em;margin-bottom:14px;}
+.section-sub{font-size:16px;color:var(--lw-text-light);line-height:1.65;max-width:580px;}
+.btn-primary{background:var(--lw-blue);color:#fff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:6px;text-decoration:none;display:inline-block;transition:background .15s;}
+.btn-primary:hover{background:var(--lw-blue-hover);}
+
+/* MINISTRY OVERVIEW GRID */
+.ministries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px;}
+.min-card-big{border-radius:16px;overflow:hidden;border:1px solid var(--lw-border);background:var(--lw-white);transition:box-shadow .25s,transform .25s;cursor:pointer;text-decoration:none;display:block;}
+.min-card-big:hover{box-shadow:0 16px 48px rgba(0,0,0,.12);transform:translateY(-4px);}
+.min-card-big.wide{grid-column:span 2;}
+.min-card-img{height:220px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.min-card-big.wide .min-card-img{height:260px;}
+.min-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.min-card-big:hover .min-card-img img{transform:scale(1.05);}
+.min-img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+.min-img-placeholder-icon{font-size:52px;}
+.min-img-placeholder-text{font-family:var(--font-display);font-size:16px;font-weight:900;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.08em;}
+.min-card-body{padding:24px 26px 28px;}
+.min-card-tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:inline-block;padding:3px 10px;border-radius:20px;}
+.min-card-title{font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--lw-gray-900);margin-bottom:8px;line-height:1.15;}
+.min-card-big.wide .min-card-title{font-size:26px;}
+.min-card-desc{font-size:14px;color:var(--lw-text-light);line-height:1.65;margin-bottom:20px;}
+.min-card-link{font-size:13px;font-weight:800;color:var(--lw-blue);display:inline-flex;align-items:center;gap:6px;letter-spacing:.02em;}
+.min-card-meta{display:flex;align-items:center;gap:16px;margin-top:14px;padding-top:14px;border-top:1px solid var(--lw-border);}
+.min-card-meta-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--lw-gray-500);font-weight:600;}
+
+/* MINISTRY DETAIL MODALS */
+.modal-overlay{position:fixed;inset:0;background:rgba(8,21,48,.85);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--lw-white);border-radius:20px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:modalIn .3s ease;}
+@keyframes modalIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:var(--lw-gray-100);border:none;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--lw-text);z-index:2;transition:background .15s;}
+.modal-close:hover{background:var(--lw-border);}
+.modal-header{height:260px;position:relative;overflow:hidden;border-radius:20px 20px 0 0;}
+.modal-header img{width:100%;height:100%;object-fit:cover;}
+.modal-header-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:16px;}
+.modal-header-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,21,48,.9) 0%,rgba(8,21,48,.3) 100%);}
+.modal-header-content{position:absolute;bottom:0;left:0;right:0;padding:28px 32px;}
+.modal-tag{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#7FB8F0;margin-bottom:8px;display:block;}
+.modal-title{font-family:var(--font-display);font-size:32px;font-weight:900;color:#fff;line-height:1.1;}
+.modal-body{padding:32px;}
+.modal-body p{font-size:15px;color:var(--lw-text-light);line-height:1.8;margin-bottom:16px;}
+.modal-body p:last-of-type{margin-bottom:0;}
+.modal-highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0;}
+.modal-highlight{background:var(--lw-blue-light);border-radius:10px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px;}
+.modal-highlight-icon{font-size:20px;flex-shrink:0;}
+.modal-highlight-text{font-size:13px;font-weight:700;color:var(--lw-text);line-height:1.4;}
+.modal-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
+.modal-btn-primary{background:var(--lw-blue);color:#fff;font-size:14px;font-weight:700;padding:12px 28px;border-radius:6px;text-decoration:none;transition:background .15s;}
+.modal-btn-primary:hover{background:var(--lw-blue-hover);}
+.modal-btn-outline{border:1.5px solid var(--lw-border);color:var(--lw-text);font-size:14px;font-weight:700;padding:11px 24px;border-radius:6px;text-decoration:none;transition:all .15s;}
+.modal-btn-outline:hover{border-color:var(--lw-blue);color:var(--lw-blue);}
+
+/* GET INVOLVED */
+.involve-section{background:var(--lw-navy);padding:80px 0;}
+.involve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden;margin-top:48px;}
+.involve-card{background:rgba(255,255,255,.04);padding:36px 28px;transition:background .15s;text-align:center;}
+.involve-card:hover{background:rgba(255,255,255,.09);}
+.involve-icon{font-size:32px;margin-bottom:14px;}
+.involve-title{font-family:var(--font-display);font-size:19px;font-weight:900;color:#fff;margin-bottom:8px;}
+.involve-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;}
+
+/* STATS */
+.stats-band{background:var(--lw-blue-light);padding:60px 0;}
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--lw-border);border-radius:12px;overflow:hidden;}
+.stat-cell{background:var(--lw-white);padding:32px 20px;text-align:center;}
+.stat-num{font-family:var(--font-display);font-size:40px;font-weight:900;color:var(--lw-blue);line-height:1;letter-spacing:-.02em;}
+.stat-label{font-size:13px;color:var(--lw-text-light);font-weight:600;margin-top:6px;}
+
+/* NEWSLETTER */
+.newsletter{background:var(--lw-gray-100);padding:72px 0;}
+.newsletter-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.newsletter-text .section-h2{margin-bottom:12px;}
+.newsletter-text p{font-size:16px;color:var(--lw-text-light);line-height:1.65;}
+.nl-form{display:flex;flex-direction:column;gap:12px;}
+.nl-form input{padding:14px 16px;border:1.5px solid var(--lw-border);border-radius:6px;font-family:var(--font);font-size:15px;color:var(--lw-text);background:var(--lw-white);outline:none;transition:border-color .15s;}
+.nl-form input:focus{border-color:var(--lw-blue);}
+.nl-form input::placeholder{color:var(--lw-gray-500);}
+.nl-form button{background:var(--lw-blue);color:#fff;font-family:var(--font);font-size:15px;font-weight:700;padding:14px;border:none;border-radius:6px;cursor:pointer;transition:background .15s;}
+.nl-form button:hover{background:var(--lw-blue-hover);}
+
+/* FOOTER */
+footer{background:var(--lw-navy-dark);padding:64px 0 0;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand-name{font-family:var(--font-display);font-size:22px;font-weight:900;color:#fff;margin-bottom:14px;}
+.footer-brand-name span{color:#7FB8F0;}
+.footer-brand-p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:20px;}
+.footer-contact-info{font-size:13px;color:rgba(255,255,255,.5);line-height:2;}
+.footer-contact-info a{color:#7FB8F0;text-decoration:none;}
+.footer-col-title{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:rgba(255,255,255,.7);text-decoration:none;font-weight:600;transition:color .15s;}
+.footer-links a:hover{color:#7FB8F0;}
+.footer-bottom{padding:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,.4);}
+.social-row{display:flex;gap:10px;}
+.social-btn{width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;transition:all .15s;font-weight:700;}
+.social-btn:hover{border-color:#7FB8F0;color:#7FB8F0;}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:960px){
+  nav{padding:0 20px;}.nav-links,.nav-right{display:none;}.nav-hamburger{display:flex;}.mobile-nav{display:block;}
+  .section-inner,.newsletter-inner,.footer-inner{padding:0 20px;}
+  .ministries-grid{grid-template-columns:1fr;}.min-card-big.wide{grid-column:span 1;}
+  .involve-grid{grid-template-columns:1fr 1fr;}
+  .stats-row{grid-template-columns:repeat(3,1fr);}
+  .newsletter-inner{grid-template-columns:1fr;gap:32px;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .modal-highlights{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .involve-grid,.stats-row{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .topbar{font-size:11px;padding:6px 12px;}
+}
+</style>
+<link rel="stylesheet" href="site.css"/>
+<link rel="stylesheet" href="events.css"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Find Your Community — Grace International Church"/>
+<meta property="og:description" content="Explore ministries for children, youth, women, men, and worship at Grace International Church. Find ways to connect and get involved."/>
+<link rel="stylesheet" href="theme.css"/>
+</head>
+<body>
+<a class="skip-link" href="#mainContent">Skip to content</a>
+
+<div class="topbar">
+  📞 24/7 Prayer Line: <a href="tel:2815647223">281-56-GRACE (47223)</a> &nbsp;·&nbsp; ✉️ <a href="mailto:info@gicglobal.org"><span class="__cf_email__" data-cfemail="026b6c646d42656b61656e6d60636e2c6d7065">info@gicglobal.org</span></a> &nbsp;·&nbsp; 💬 Text: <a href="sms:3467352827">(346) 735-2827</a>
+</div>
+
+<div class="nav-wrap">
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="images/logowhite.png" alt="GIC Global" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';" />
+
+      <span class="nav-logo-fallback">GIC <span style="color:#7FB8F0;">Global</span></span>
+    </a>
+    <ul class="nav-links">
+<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+<li class="has-dropdown"><a href="#">Locations</a><ul class="nav-dropdown"><li><a href="location-texas.html">GIC Houston</a></li><li><a href="location-newyork.html">GIC New York</a></li><li><a href="location-lagos.html">GIC Lagos</a></li></ul></li>
+<li><a href="events.html">Events</a></li><li><a href="ministries.html">Ministries</a></li><li><a href="sermons.html">Sermons</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <div class="nav-right">
+      <a href="https://www.youtube.com/@GicglobalTX" target="_blank" class="btn-nav-watch" rel="noopener">▶ Watch Live</a>
+      <a href="give.html" class="btn-nav-give">Give</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-logo">GIC <span>Global</span></span>
+      <button class="mobile-nav-close" id="mobileClose">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+<li class="mob-has-dropdown"><a href="#"><span>Locations</span><span class="mob-dd-arrow" aria-hidden="true">▾</span></a><ul class="mob-submenu"><li><a href="location-texas.html">GIC Houston</a></li><li><a href="location-newyork.html">GIC New York</a></li><li><a href="location-lagos.html">GIC Lagos</a></li></ul></li>
+<li><a href="events.html">Events</a></li><li><a href="ministries.html">Ministries</a></li><li><a href="sermons.html">Sermons</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <div class="mobile-nav-footer">
+      <a href="https://www.youtube.com/@GicglobalTX" target="_blank" class="mobile-btn-watch" rel="noopener">▶ Watch Live</a>
+      <a href="give.html" class="mobile-btn-give">Give Online</a>
+    </div>
+    <div class="mobile-nav-contact">
+      📞 <a href="tel:2815647223">281-56-GRACE (47223)</a><br/>
+      ✉️ <a href="mailto:info@gicglobal.org"><span class="__cf_email__" data-cfemail="6801060e07280f010b0f04070a090446071a0f">info@gicglobal.org</span></a>
+    </div>
+  </div>
+</div>
+
+<main id="mainContent">
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <svg class="hero-bg-svg" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+    <g fill="white">
+      <circle cx="200" cy="200" r="80" fill="none" stroke="white" stroke-width="2"/>
+      <circle cx="400" cy="200" r="80" fill="none" stroke="white" stroke-width="2"/>
+      <circle cx="300" cy="340" r="80" fill="none" stroke="white" stroke-width="2"/>
+      <line x1="200" y1="200" x2="400" y2="200" stroke="white" stroke-width="1.5" opacity=".5"/>
+      <line x1="200" y1="200" x2="300" y2="340" stroke="white" stroke-width="1.5" opacity=".5"/>
+      <line x1="400" y1="200" x2="300" y2="340" stroke="white" stroke-width="1.5" opacity=".5"/>
+    </g>
+  </svg>
+  <div class="page-hero-inner">
+    <nav class="site-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></a></li><li><span aria-current="page">Ministries</span></li></ol></nav>
+    <div class="page-eyebrow">Get Involved</div>
+    <h1 class="page-h1">Find Your Place<br/>in the Family</h1>
+    <p class="page-sub">At Grace Int'l Church, there's a community for every season of life. Discover where you belong and grow together in faith, purpose, and community.</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band fade-up">
+  <div class="section-inner">
+    <div class="stats-row">
+      <div class="stat-cell"><div class="stat-num">5</div><div class="stat-label">Active Ministries</div></div>
+      <div class="stat-cell"><div class="stat-num">35<span style="font-size:24px">+</span></div><div class="stat-label">Nations Represented</div></div>
+      <div class="stat-cell"><div class="stat-num">3</div><div class="stat-label">Global Campuses</div></div>
+      <div class="stat-cell"><div class="stat-num">27<span style="font-size:24px">+</span></div><div class="stat-label">Years of Ministry</div></div>
+      <div class="stat-cell"><div class="stat-num">∞</div><div class="stat-label">Lives Transformed</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MINISTRIES GRID -->
+<section class="section fade-up">
+  <div class="section-inner">
+    <div class="section-label">Our Ministries</div>
+    <h2 class="section-h2">Every Ministry, One Mission</h2>
+    <p class="section-sub">Click any ministry to learn more, discover how to join, and connect with the community.</p>
+
+    <div class="ministries-grid">
+<div class="min-card-big" onclick="openModal('children')">
+        <div class="min-card-img has-ministry-photo" style="background:linear-gradient(135deg,#0a2a0a 0%,#1a6a20 100%);">
+<img src="images/ministries/children.jpg" alt="Children singing together during a church service" width="1440" height="961" loading="lazy" decoding="async"/>
+          
+          <div class="min-img-placeholder" style="background:linear-gradient(135deg,#0a2a0a,#1a6a20);">
+            <span class="min-img-placeholder-icon">⭐</span>
+            <span class="min-img-placeholder-text">Grace Children</span>
+          </div>
+        </div>
+        <div class="min-card-body">
+          <span class="min-card-tag" style="background:#edfbf2;color:#1a6a20;">Children's Ministry</span>
+          <h3 class="min-card-title">Grace Children</h3>
+          <div class="min-card-desc">Nurturing young hearts aged 2–12 in the love of God. Age-appropriate, fun, and Spirit-filled environments where children build a lifelong foundation of faith.</div>
+          <div class="min-card-link" style="margin-top:16px;">Learn More & Join →</div>
+        </div>
+      </div>
+
+<div class="min-card-big" onclick="openModal('youth')">
+        <div class="min-card-img has-ministry-photo" style="background:linear-gradient(135deg,#1a0a3a 0%,#4a2090 100%);">
+<img src="images/ministries/one-way-youth.jpg" alt="One Way Youth ministry gathering at church" width="3909" height="2604" loading="lazy" decoding="async"/>
+          <div class="min-img-placeholder" style="background:linear-gradient(135deg,#1a0a3a,#4a2090);">
+            <span class="min-img-placeholder-icon">🔥</span>
+            <span class="min-img-placeholder-text">One Way Youth</span>
+          </div>
+        </div>
+        <div class="min-card-body">
+          <span class="min-card-tag" style="background:#f0eeff;color:#4a2090;">Youth Ministry</span>
+          <h3 class="min-card-title">One Way Youth Ministry</h3>
+          <div class="min-card-desc">Raising the next generation on fire for God — a safe space where young people encounter Jesus, build genuine friendships, and discover their purpose.</div>
+          <div class="min-card-link" style="margin-top:16px;">Learn More & Join →</div>
+        </div>
+      </div>
+
+<div class="min-card-big" onclick="openModal('vogue')">
+        <div class="min-card-img" style="background:linear-gradient(135deg,#4a1040 0%,#8a2070 100%);">
+          <img src="images/vogue.jpg" alt="VOGUE Women's Ministry" onerror="this.style.display='none'"/>
+          <div class="min-img-placeholder" style="background:linear-gradient(135deg,#4a1040,#8a2070);">
+            <span class="min-img-placeholder-icon">👑</span>
+            <span class="min-img-placeholder-text">VOGUE Women</span>
+          </div>
+        </div>
+        <div class="min-card-body">
+          <span class="min-card-tag" style="background:#fce8f5;color:#8a2070;">Women's Ministry</span>
+          <h3 class="min-card-title">V.O.G.U.E. Women's Ministry</h3>
+          <div class="min-card-desc">Victorious, Outstanding, Gracious, Unctuous &amp; Excellent — empowering women to walk boldly in their God-given identity, purpose, and grace. A community where women are celebrated, equipped, and transformed.</div>
+          <div class="min-card-meta">
+            <span class="min-card-meta-item">👩 Women 18+</span>
+            <span class="min-card-meta-item">🌍 All Campuses</span>
+            <span class="min-card-meta-item">📅 Monthly Gatherings</span>
+          </div>
+          <div class="min-card-link" style="margin-top:16px;">Learn More & Join →</div>
+        </div>
+      </div>
+
+<div class="min-card-big" onclick="openModal('men')">
+        <div class="min-card-img has-ministry-photo" style="background:linear-gradient(135deg,#0c1f3f 0%,#1b4a8a 100%);">
+<img src="images/ministries/men.jpg" alt="Men of Valor ministry group gathered at church" width="2568" height="1712" loading="lazy" decoding="async"/>
+          <div class="min-img-placeholder" style="background:linear-gradient(135deg,#0c1f3f,#1b4a8a);">
+            <span class="min-img-placeholder-icon">⚔️</span>
+            <span class="min-img-placeholder-text">Men of Valor</span>
+          </div>
+        </div>
+        <div class="min-card-body">
+          <span class="min-card-tag" style="background:#eef2ff;color:#1b4a8a;">Men's Ministry</span>
+          <h3 class="min-card-title">Men of Valor</h3>
+          <div class="min-card-desc">For men, by men — building godly character, spiritual strength, and purposeful leadership through brotherhood, accountability, and the Word of God.</div>
+          <div class="min-card-link" style="margin-top:16px;">Learn More & Join →</div>
+        </div>
+      </div>
+
+<div class="min-card-big ministry-feature" onclick="openModal('choir')">
+        <div class="min-card-img has-ministry-photo" style="background:linear-gradient(135deg,#1a0a10 0%,#4a1020 100%);">
+<img src="images/ministries/choir.jpg" alt="The church choir singing together on stage" width="1440" height="959" loading="lazy" decoding="async"/>
+          
+          <div class="min-img-placeholder" style="background:linear-gradient(135deg,#1a0a10,#4a1020);">
+            <span class="min-img-placeholder-icon">🎵</span>
+            <span class="min-img-placeholder-text">Choir & Music</span>
+          </div>
+        </div>
+        <div class="min-card-body">
+          <span class="min-card-tag" style="background:#fff0f0;color:#8a1020;">Worship Ministry</span>
+          <h3 class="min-card-title">Choir & Music Team</h3>
+          <div class="min-card-desc">Leading the congregation into the presence of God through powerful, anointed worship. If you have a gift for music, singing, or sound — this is your home. We sing, we play, we lead hearts to the throne of grace.</div>
+          <div class="min-card-meta">
+            <span class="min-card-meta-item">🎤 Singers & Musicians</span>
+            <span class="min-card-meta-item">🎹 All Instruments</span>
+            <span class="min-card-meta-item">🎧 Sound & Media</span>
+          </div>
+          <div class="min-card-link" style="margin-top:16px;">Learn More & Audition →</div>
+        </div>
+      </div>
+</div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="involve-section fade-up">
+  <div class="section-inner">
+    <div class="section-label" style="color:#7FB8F0;">Join the Family</div>
+    <h2 class="section-h2" style="color:#fff;margin-bottom:12px;">How to Get Involved</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.65);margin-bottom:0;">Three simple steps to find your community at GIC.</p>
+    <div class="involve-grid">
+      <div class="involve-card">
+        <div class="involve-icon">🙋</div>
+        <div class="involve-title">1. Show Up</div>
+        <div class="involve-desc">Visit any of our campuses this Sunday. Our welcome team will connect you with the right ministry from the moment you walk in.</div>
+      </div>
+      <div class="involve-card">
+        <div class="involve-icon">💬</div>
+        <div class="involve-title">2. Connect</div>
+        <div class="involve-desc">Fill out a connection card, reach out via the contact form, or call our office and we'll personally walk you through joining a ministry.</div>
+      </div>
+      <div class="involve-card">
+        <div class="involve-icon">🌱</div>
+        <div class="involve-title">3. Grow</div>
+        <div class="involve-desc">Jump in, build friendships, serve others, and watch God transform your life through community, accountability, and purpose.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINISTRY MODALS -->
+<div class="modal-overlay" id="modal-vogue" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header" style="background:linear-gradient(135deg,#4a1040,#8a2070);">
+      <img src="images/vogue.jpg" alt="" onerror="this.style.display='none'"/>
+      <div class="modal-header-overlay"></div>
+      <div class="modal-header-content">
+        <span class="modal-tag">Women's Ministry</span>
+        <div class="modal-title">V.O.G.U.E. Women's Ministry</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>V.O.G.U.E. stands for <strong>Victorious, Outstanding, Gracious, Unctuous &amp; Excellent</strong> — a ministry designed by God for the modern woman of faith. We exist to empower women to walk boldly in their identity, gifts, and purpose.</p>
+      <p>Through conferences, fellowships, mentorship, and discipleship, VOGUE builds a sisterhood where women are celebrated, supported, and challenged to go deeper in their walk with God.</p>
+      <div class="modal-highlights">
+        <div class="modal-highlight"><span class="modal-highlight-icon">🌸</span><span class="modal-highlight-text">Monthly fellowship gatherings &amp; conferences</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">📖</span><span class="modal-highlight-text">Women's Bible study &amp; discipleship groups</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🤝</span><span class="modal-highlight-text">Mentorship &amp; personal development programs</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🌍</span><span class="modal-highlight-text">Open to women at all GIC campus locations</span></div>
+      </div>
+      <div class="modal-actions">
+        <a href="contact.html" class="modal-btn-primary">Join VOGUE Ministry</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-men" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header has-ministry-photo" style="background:linear-gradient(135deg,#0c1f3f,#1b4a8a);">
+<img src="images/ministries/men.jpg" alt="Men of Valor ministry group gathered at church" width="2568" height="1712" loading="lazy" decoding="async"/>
+      
+      <div class="modal-header-overlay"></div>
+      <div class="modal-header-content">
+        <span class="modal-tag">Men's Ministry</span>
+        <div class="modal-title">Men of Valor</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>The Grace Int'l Church Men's Ministry — <strong>Men of Valor</strong> — is for men, by men. We exist to support and address the issues specific to men in today's world, through the lens of Scripture.</p>
+      <p>Men of Valor Internationally jumpstarts men's discipleship through conferences, emphasizing biblical principles and practices. We host programs for spiritual empowerment, marital enrichment, financial empowerment, and so much more.</p>
+      <p>Come experience acceptance, mentorship, fellowship, and life transformation through the Word of God in an open, loving, and accountable environment.</p>
+      <div class="modal-highlights">
+        <div class="modal-highlight"><span class="modal-highlight-icon">💪</span><span class="modal-highlight-text">Spiritual empowerment &amp; biblical discipleship</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">💍</span><span class="modal-highlight-text">Marital enrichment &amp; family leadership</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">💰</span><span class="modal-highlight-text">Financial stewardship &amp; empowerment</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🤜</span><span class="modal-highlight-text">Brotherhood, accountability &amp; mentorship</span></div>
+      </div>
+      <div class="modal-actions">
+        <a href="contact.html" class="modal-btn-primary">Join Men of Valor</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-youth" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header has-ministry-photo" style="background:linear-gradient(135deg,#1a0a3a,#4a2090);">
+<img src="images/ministries/one-way-youth.jpg" alt="One Way Youth ministry gathering at church" width="3909" height="2604" loading="lazy" decoding="async"/>
+      <div class="modal-header-overlay"></div>
+      <div class="modal-header-content">
+        <span style="font-size:56px;display:block;margin-bottom:12px;">🔥</span>
+        <span class="modal-tag">Youth Ministry</span>
+        <div class="modal-title">One Way Youth Ministry</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p><strong>One Way Youth Ministry</strong> is where the next generation finds their faith, their tribe, and their purpose. We're passionate about raising young people who are on fire for God and rooted in truth.</p>
+      <p>Through weekly services, retreats, community outreach, worship nights, and mentorship, we create a safe space where young people can ask real questions, encounter God authentically, and grow together.</p>
+      <div class="modal-highlights">
+        <div class="modal-highlight"><span class="modal-highlight-icon">🎮</span><span class="modal-highlight-text">Fun, engaging weekly youth services</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🏕</span><span class="modal-highlight-text">Youth retreats &amp; camping experiences</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🎤</span><span class="modal-highlight-text">Worship nights &amp; prayer events</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🤝</span><span class="modal-highlight-text">Community service &amp; outreach projects</span></div>
+      </div>
+      <div class="modal-actions">
+        <a href="contact.html" class="modal-btn-primary">Get Your Youth Involved</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-children" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header has-ministry-photo" style="background:linear-gradient(135deg,#0a2a0a,#1a6a20);">
+<img src="images/ministries/children.jpg" alt="Children singing together during a church service" width="1440" height="961" loading="lazy" decoding="async"/>
+      
+      <div class="modal-header-overlay"></div>
+      <div class="modal-header-content">
+        <span class="modal-tag">Children's Ministry</span>
+        <div class="modal-title">Grace Children</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p><strong>Grace Children's Ministry</strong> is committed to nurturing young hearts from ages 2–12 in the love, truth, and grace of God. We believe that a child's spiritual foundation is one of the most important investments a family can make.</p>
+      <p>Every Sunday, our trained and caring team creates age-appropriate, safe, and fun environments where children encounter God's love through Bible stories, worship, games, and creative activities.</p>
+      <div class="modal-highlights">
+        <div class="modal-highlight"><span class="modal-highlight-icon">👶</span><span class="modal-highlight-text">Faith-building activities for children ages 2–12</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">📚</span><span class="modal-highlight-text">Bible-based curriculum for all age groups</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🔒</span><span class="modal-highlight-text">Safe, screened &amp; trained volunteers</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🎨</span><span class="modal-highlight-text">Creative worship, games &amp; storytelling</span></div>
+      </div>
+      <div class="modal-actions">
+        <a href="contact.html" class="modal-btn-primary">Ask About Children’s Ministry</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-choir" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header has-ministry-photo" style="background:linear-gradient(135deg,#1a0a10,#4a1020);">
+<img src="images/ministries/choir.jpg" alt="The church choir singing together on stage" width="1440" height="959" loading="lazy" decoding="async"/>
+      
+      <div class="modal-header-overlay"></div>
+      <div class="modal-header-content">
+        <span class="modal-tag">Worship Ministry</span>
+        <div class="modal-title">Choir & Music Team</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>The <strong>GIC Choir &amp; Music Team</strong> is the heartbeat of our worship experience. We believe that music is a powerful vehicle for encountering the presence of God, and we take that calling seriously.</p>
+      <p>Whether you're a vocalist, instrumentalist, sound engineer, or creative — if you have a gift and a heart for worship, we want you on the team. We rehearse, we grow, and we lead God's people into His presence every Sunday.</p>
+      <div class="modal-highlights">
+        <div class="modal-highlight"><span class="modal-highlight-icon">🎤</span><span class="modal-highlight-text">Choir singers &amp; lead vocalists</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🎹</span><span class="modal-highlight-text">Instrumentalists — keys, guitar, drums, bass</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">🎧</span><span class="modal-highlight-text">Sound engineers &amp; media team</span></div>
+        <div class="modal-highlight"><span class="modal-highlight-icon">📅</span><span class="modal-highlight-text">Weekly rehearsals &amp; Sunday services</span></div>
+      </div>
+      <div class="modal-actions">
+        <a href="contact.html" class="modal-btn-primary">Audition / Join the Team</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter fade-up">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <div class="section-label">Stay Connected</div>
+      <h2 class="section-h2">Get the Weekly Word</h2>
+      <p>Subscribe for weekly encouragement, ministry updates, sermon notes, and event news.</p>
+    </div>
+    <div class="nl-form">
+      <input type="text" placeholder="Your full name"/>
+      <input type="email" placeholder="Your email address"/>
+      <button type="submit">Subscribe to Weekly Word</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">GIC <span>Global</span></div>
+        <p class="footer-brand-p">Grace Int'l Church — Home of Transformed Vessels. A multicultural church across 3 global locations.</p>
+        <div class="footer-contact-info">
+          <div>📍 15401 Bellaire Blvd, Houston, TX 77083</div>
+          <div>📞 <a href="tel:2815647223">281-56-GRACE (47223)</a></div>
+          <div>✉️ <a href="mailto:info@gicglobal.org">info@gicglobal.org</a></div>
+        </div>
+      </div>
+      <div><div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+<li><a href="ministries.html">Ministries</a></li><li><a href="sermons.html">Sermons</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div><div class="footer-col-title">Locations</div>
+        <ul class="footer-links">
+          <li><a href="location-texas.html">GIC Texas</a></li>
+          <li><a href="location-newyork.html">GIC New York</a></li>
+          <li><a href="location-lagos.html">GIC Lagos</a></li>
+        </ul>
+      </div>
+      <div><div class="footer-col-title">Resources</div>
+        <ul class="footer-links">
+          <li><a href="https://www.youtube.com/@GicglobalTX" target="_blank" rel="noopener">Watch Live</a></li>
+          <li><a href="sermons.html">Sermon Library</a></li>
+          <li><a href="give.html">Give Online</a></li>
+        </ul>
+      </div>
+    </div>
+     <div class="footer-bottom">
+      <p>© 2026 Grace International Church. All rights reserved.</p>
+      <div class="social-row">
+        <a href="https://www.youtube.com/@GicglobalTX" class="social-btn" target="_blank" rel="noopener">▶</a>
+        <a href="https://facebook.com/gicglobaltx" class="social-btn">f</a>
+        <a href="https://twitter.com/gicglobaltx" class="social-btn">X</a>
+        <a href="https://instagram.com/gicglobaltx" class="social-btn">ig</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Fade in
+  var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.08});
+  document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el);});
+
+  // Modals
+  window.openModal=function(id){
+    document.getElementById('modal-'+id).classList.add('open');
+    document.body.style.overflow='hidden';
+  };
+  window.closeModal=function(e){
+    if(e&&e.target!==e.currentTarget)return;
+    document.querySelectorAll('.modal-overlay').forEach(function(m){m.classList.remove('open');});
+    document.body.style.overflow='';
+  };
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+  // Mobile nav
+  var hbg=document.getElementById('hamburger'),mn=document.getElementById('mobileNav'),mc=document.getElementById('mobileClose'),ov=document.getElementById('mobileOverlay');
+  function open(){mn.classList.add('open');hbg.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){mn.classList.remove('open');hbg.classList.remove('open');document.body.style.overflow='';}
+  if(hbg)hbg.addEventListener('click',open);if(mc)mc.addEventListener('click',close);if(ov)ov.addEventListener('click',close);
+  document.querySelectorAll('.mobile-nav-links a:not(.mob-has-dropdown > a),.mobile-nav-footer a').forEach(function(a){a.addEventListener('click',close);});
+  document.querySelectorAll('.mob-has-dropdown > a').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var li=a.parentElement;var w=li.classList.contains('open');document.querySelectorAll('.mob-has-dropdown').forEach(function(el){el.classList.remove('open');});if(!w)li.classList.add('open');});
+  });
+
+  // Newsletter
+  document.querySelectorAll('.nl-form button').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      var f=btn.parentElement;
+      var nm=f.querySelector('input[type="text"]');var em=f.querySelector('input[type="email"]');
+      var name=nm?nm.value.trim():'';var email=em?em.value.trim():'';
+      if(!email){alert('Please enter your email address.');return;}
+      var s=encodeURIComponent('Weekly Word Subscription — GIC Global');
+      var b=encodeURIComponent('New subscriber:\nName: '+(name||'Not provided')+'\nEmail: '+email);
+      window.location.href='mailto:gicglobalonline@gmail.com?subject='+s+'&body='+b;
+      btn.textContent = 'Draft requested — send it in your email app';btn.style.background='#00a854';btn.disabled = false;
+    });
+  });
+})();
+</script>
+<script src="campus-data.js"></script>
+<script src="event-data.js"></script>
+<script src="site.js"></script>
+<script src="events.js"></script>
+</body>
+</html>

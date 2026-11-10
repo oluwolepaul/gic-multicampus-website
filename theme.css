@@ -1,0 +1,188 @@
+/* GIC palette: navy foundation, sky-blue highlights, black contrast. */
+.site-breadcrumb { display:flex; width:fit-content; max-width:100%; height:auto; margin:0 0 24px; padding:5px; border:1px solid #76d3ff35; border-radius:10px; background:#080c123b; justify-content:flex-start; }
+.site-breadcrumb ol { display:flex; align-items:center; flex-wrap:wrap; list-style:none; gap:4px; padding:0; margin:0; }
+.site-breadcrumb li { display:flex; align-items:center; min-width:0; }
+.site-breadcrumb li + li::before { content:'›'; color:#a6bed1; font-size:18px; margin:0 6px; }
+.site-breadcrumb a { display:inline-flex; align-items:center; gap:7px; padding:8px 10px; min-height:38px; color:#e0f3ff; border-radius:6px; text-decoration:none; font:700 13px/1.4 var(--font); }
+.site-breadcrumb a:hover { color:white; background:#76d3ff20; }
+.site-breadcrumb [aria-current="page"] { display:block; padding:8px 11px; color:var(--gic-navy-deep); background:var(--gic-sky); border-radius:6px; font:800 13px/1.4 var(--font); }
+.site-breadcrumb svg { flex-shrink:0; }
+@media(max-width:600px) { .site-breadcrumb { margin-bottom:20px; } .site-breadcrumb a,.site-breadcrumb [aria-current="page"] { font-size:12px; padding:8px; } .site-breadcrumb li + li::before { margin-inline:3px; } }
+.campus-discovery { background:linear-gradient(180deg,#fff 0%,#f3f9fd 100%); }
+.campus-discovery-heading { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:48px; margin-bottom:36px; }
+.campus-discovery-heading .section-h2 { margin-bottom:0; max-width:520px; }
+.campus-discovery-intro { color:var(--gic-muted); font-size:17px; line-height:1.7; max-width:500px; padding-bottom:3px; }
+.campus-discovery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; align-items:stretch; }
+.campus-card { background:white; border:1px solid var(--gic-line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 8px 28px #102b5007; transition:box-shadow .2s,transform .2s; }
+.campus-card:hover { transform:translateY(-3px); box-shadow:0 14px 36px #102b5012; }
+.campus-card-photo { position:relative; overflow:hidden; background:var(--gic-navy); aspect-ratio:16/10; }
+.campus-card-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:50% 40%; }
+.campus-mode { position:absolute; left:16px; top:16px; padding:6px 12px; color:white; background:#080c12e8; border:1px solid #ffffff38; border-radius:20px; font-size:11px; font-weight:800; letter-spacing:.03em; }
+.campus-card-online .campus-mode { background:var(--gic-sky); color:var(--gic-navy-deep); border-color:transparent; }
+.campus-card-content { padding:26px; display:flex; flex-direction:column; flex:1; }
+.campus-country { color:var(--gic-link); font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; }
+.campus-card h3 { font:900 25px/1.2 var(--font-display); margin:0 0 12px; }
+.campus-card h3 a { color:var(--gic-ink); text-decoration:none; }
+.campus-card h3 a:hover { color:var(--gic-link); }
+.campus-card-address { color:var(--gic-muted); font-size:14px; line-height:1.6; min-height:45px; margin-bottom:22px; }
+.campus-gathering { background:var(--gic-ice); border-left:3px solid var(--gic-sky); border-radius:0 8px 8px 0; padding:15px; margin-top:auto; min-height:122px; }
+.campus-detail-label { color:var(--gic-muted); font-size:11px; font-weight:700; margin-bottom:7px; }
+.campus-detail-value { color:var(--gic-navy-deep); font-size:15px; font-weight:800; line-height:1.5; }
+.campus-detail-note { color:var(--gic-muted); font-size:12px; line-height:1.5; margin-top:7px; }
+.campus-card-actions { display:flex; flex-direction:column; align-items:center; gap:16px; margin-top:24px; }
+.campus-card-primary { display:flex; align-items:center; justify-content:space-between; width:100%; padding:13px 16px; min-height:46px; color:var(--gic-navy-deep); background:var(--gic-sky); border-radius:8px; text-decoration:none; font-size:14px; font-weight:800; }
+.campus-card-primary:hover { background:var(--gic-sky-hover); }
+.campus-card-secondary { color:var(--gic-link); text-underline-offset:4px; font-size:13px; font-weight:800; padding:3px 0; }
+.campus-discovery-help { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:22px 0 0; margin-top:30px; border-top:1px solid var(--gic-line); }
+.campus-discovery-help p { color:var(--gic-muted); font-size:14px; }
+.campus-discovery-help a { color:var(--gic-link); font-size:14px; font-weight:800; text-underline-offset:4px; }
+@media(max-width:1000px) { .campus-discovery-heading { gap:24px; } .campus-discovery-grid { gap:18px; } .campus-card-content { padding:20px; } .campus-card h3 { font-size:22px; } }
+@media(max-width:760px) { .campus-discovery-heading { grid-template-columns:1fr; gap:16px; } .campus-discovery-grid { grid-template-columns:1fr; max-width:520px; margin-inline:auto; gap:24px; } .campus-discovery-intro { max-width:600px; } .campus-card-content { padding:24px; } .campus-card-address { min-height:0; } .campus-gathering { min-height:0; } .campus-discovery-help { align-items:flex-start; flex-direction:column; } }
+.ministries-grid .min-card-img.has-ministry-photo,.ministries-grid .ministry-feature .min-card-img.has-ministry-photo { height:auto; min-height:0; aspect-ratio:3/2; align-self:center; width:100%; }
+.ministries-grid .min-card-img.has-ministry-photo img { width:100%; height:100%; object-fit:contain; object-position:center; }
+.modal-header.has-ministry-photo { height:auto; background:var(--gic-navy) !important; }
+.modal-header.has-ministry-photo img { width:100%; height:auto; display:block; }
+.modal-header.has-ministry-photo .modal-header-overlay { display:none; }
+.modal-header.has-ministry-photo .modal-header-content { position:relative; padding:24px 28px; background:var(--gic-navy); }
+:root {
+  --gic-navy:#102b50;
+  --gic-navy-deep:#091a31;
+  --gic-sky:#76d3ff;
+  --gic-sky-hover:#a3e3ff;
+  --gic-ice:#edf8ff;
+  --gic-black:#080c12;
+  --gic-ink:#101b29;
+  --gic-link:#075b87;
+  --gic-muted:#46586a;
+  --gic-line:#d5e3ed;
+  --lw-navy:var(--gic-navy);
+  --lw-navy-dark:var(--gic-black);
+  --lw-blue:var(--gic-link);
+  --lw-blue-hover:#03486d;
+  --lw-blue-light:var(--gic-ice);
+  --lw-text:var(--gic-ink);
+  --lw-text-light:var(--gic-muted);
+  --lw-border:var(--gic-line);
+}
+body { color:var(--gic-ink); background:#fff; }
+.topbar { background:var(--gic-black); color:#e5edf4; }
+.topbar a { color:var(--gic-sky); }
+.nav-wrap { background:var(--gic-navy); border-bottom:3px solid var(--gic-sky); box-shadow:0 3px 14px #080c121f; }
+.nav-dropdown,.nav-dropdown::before,.mobile-nav-drawer { background:var(--gic-navy-deep); }
+.nav-links a[aria-current="page"] { background:#76d3ff20; box-shadow:inset 0 -2px var(--gic-sky); }
+.nav-links a:hover,.nav-dropdown li a:hover,.mobile-nav-links a:hover { background:#76d3ff16; }
+.btn-primary,.btn-nav-give,.btn-give,.newsletter-form button,.nl-form button,.form-submit,.contact-form button,.reset-sermons,.btn-watch {
+  background:var(--gic-sky); color:var(--gic-navy-deep); border-radius:8px; font-weight:800;
+}
+.btn-primary:hover,.btn-nav-give:hover,.btn-give:hover,.newsletter-form button:hover,.nl-form button:hover,.form-submit:hover,.contact-form button:hover,.reset-sermons:hover,.btn-watch:hover { background:var(--gic-sky-hover); color:var(--gic-navy-deep); }
+.btn-nav-watch { border-color:#76d3ff88; color:#fff; }
+.btn-nav-watch:hover { background:#76d3ff15; border-color:var(--gic-sky); }
+.welcome-hero { background:linear-gradient(115deg,var(--gic-navy) 0%,#10294b 56%,var(--gic-black) 100%); }
+.welcome-copy h1 span,.welcome-eyebrow,.welcome-watch { color:var(--gic-sky); }
+.welcome-photo { border:1px solid #76d3ff38; box-shadow:0 20px 60px #0005; }
+.welcome-photo figcaption { background:linear-gradient(transparent,#080c12ed); }
+.welcome-campus-bar { max-width:none; padding-left:max(32px,calc((100% - 1136px)/2)); padding-right:max(32px,calc((100% - 1136px)/2)); background:var(--gic-sky); border-top:0; }
+.welcome-campus-bar > a { color:var(--gic-navy-deep); border-color:#102b5026; }
+.welcome-campus-bar strong,.welcome-campus-bar > a > span:last-child { color:var(--gic-navy-deep); }
+.welcome-campus-bar > a:hover { background:#ffffff38; }
+.welcome-secondary { border-color:#a1d9f9; color:#f5fbff; }
+.welcome-secondary:hover { border-color:var(--gic-sky); background:#76d3ff16; }
+.page-hero,.featured-hero { background:linear-gradient(115deg,var(--gic-navy) 0%,#10294b 56%,var(--gic-black) 100%); }
+.page-eyebrow,.featured-badge { background:#76d3ff1c; color:var(--gic-sky); border-color:#76d3ff42; }
+.page-sub,.featured-desc { color:#d9e6f1; }
+.breadcrumb a { color:#bdeaff; }
+.section-label,.loc-visit,.season-badge,.season-date,.season-actions a,.season-directions,.season-reset,.visit-directions,.visit-phone,.home-message-action,.live-sermon-link { color:var(--gic-link); }
+.section-h2,.loc-city,.season-body h3,.home-message h3,.visit-summary-inner h2 { color:var(--gic-ink); }
+.locations,.home-messages,.sermons-section { background:#fff; }
+.season-events { background:var(--gic-ice); border-block:1px solid #d9eefb; }
+.season-toolbar,.season-card,.home-message,.loc-card,.sermon-card { border-color:var(--gic-line); box-shadow:0 4px 20px #102b5006; }
+.season-flyer { background:#e2f1fb; }
+.season-grid[hidden],.event-agenda[hidden] { display:none; }
+.event-view-controls { display:flex; gap:4px; flex-wrap:wrap; padding:5px; background:#dceef9; border:1px solid #bdd6e7; border-radius:10px; width:fit-content; margin:0 0 24px; }
+.event-view-controls button { background:transparent; color:var(--gic-navy); border:0; padding:11px 18px; border-radius:7px; font:800 14px var(--font); cursor:pointer; min-height:44px; }
+.event-view-controls button[aria-pressed="true"] { background:var(--gic-navy); color:#fff; box-shadow:0 2px 7px #102b501c; }
+.event-view-controls .event-share { color:var(--gic-link); text-decoration:underline; text-underline-offset:4px; }
+.event-share-status { color:var(--gic-muted); font-size:13px; align-self:center; padding-inline:8px; }
+.event-view-link { flex-basis:100%; min-width:0; width:100%; border:1px solid #83b7d5; padding:10px; border-radius:6px; background:white; color:var(--gic-navy); font:14px var(--font); }
+.event-agenda { display:grid; gap:14px; }
+.agenda-row { display:grid; grid-template-columns:76px 1fr auto; gap:24px; align-items:center; background:white; border:1px solid var(--gic-line); border-radius:12px; padding:24px; }
+.agenda-date { text-align:center; color:var(--gic-navy-deep); background:var(--gic-sky); border-radius:10px; padding:12px 6px; display:flex; flex-direction:column; }
+.agenda-month { font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:800; }
+.agenda-day { font:900 32px/1.2 var(--font-display); }
+.agenda-campus { color:var(--gic-link); font-size:12px; font-weight:800; margin-bottom:5px; }
+.agenda-body h3 { color:var(--gic-ink); font:800 21px/1.3 var(--font-display); }
+.agenda-program { color:var(--gic-muted); font-size:14px; margin-top:4px; }
+.agenda-time { color:var(--gic-ink); font-size:14px; font-weight:700; margin-top:7px; }
+.agenda-address { color:var(--gic-muted); font-size:13px; margin-top:4px; }
+.agenda-actions { display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+.agenda-actions a { color:var(--gic-link); font-size:14px; font-weight:800; text-underline-offset:4px; }
+.events-page-hero { padding:64px 0; }
+.events-page-hero h1 { color:white; font:900 clamp(36px,5vw,58px)/1.12 var(--font-display); letter-spacing:-.03em; }
+.events-page-hero h1 span { color:var(--gic-sky); }
+.events-page-intro { color:#d9e6f1; max-width:600px; font-size:18px; line-height:1.7; margin-top:22px; }
+.events-full-link { display:inline-block; color:var(--gic-link); font-size:15px; font-weight:800; margin:0 0 16px; text-underline-offset:4px; }
+.ministries-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; align-items:stretch; }
+.ministries-grid .min-card-big { display:flex; flex-direction:column; height:100%; box-shadow:0 4px 20px #102b5008; }
+.ministries-grid .min-card-img { height:240px; flex-shrink:0; background:var(--gic-navy); }
+.ministries-grid .min-card-img img { position:relative; z-index:1; }
+.ministries-grid .min-img-placeholder { background:linear-gradient(135deg,var(--gic-navy),var(--gic-black)) !important; }
+.ministries-grid .min-img-placeholder-text { color:#c6eaff; }
+.ministries-grid .min-card-body { display:flex; flex:1; flex-direction:column; padding:26px; }
+.ministries-grid .min-card-title { font-size:24px; color:var(--gic-ink); }
+.ministries-grid .min-card-desc { flex:1; }
+.ministries-grid .min-card-tag { background:var(--gic-ice) !important; color:var(--gic-link) !important; align-self:flex-start; }
+.ministries-grid .min-card-meta { flex-wrap:wrap; gap:10px 16px; }
+.ministries-grid .min-card-link { padding-top:16px; border-top:1px solid var(--gic-line); color:var(--gic-link); }
+.ministries-grid .ministry-feature { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; }
+.ministries-grid .ministry-feature .min-card-img { height:100%; min-height:300px; }
+.ministries-grid .ministry-feature .min-card-body { background:var(--gic-navy); }
+.ministries-grid .ministry-feature .min-card-title { color:white; }
+.ministries-grid .ministry-feature .min-card-desc,.ministries-grid .ministry-feature .min-card-meta-item { color:#d5e3ef; }
+.ministries-grid .ministry-feature .min-card-link { color:var(--gic-sky); border-color:#ffffff30; }
+.ministries-grid .ministry-feature .min-card-meta { border-color:#ffffff30; }
+@media(max-width:700px) { .ministries-grid { grid-template-columns:1fr; gap:22px; } .ministries-grid .ministry-feature { display:flex; } .ministries-grid .ministry-feature .min-card-img { height:240px; min-height:0; } .ministries-grid .min-card-body { padding:22px; } }
+@media(max-width:600px) { .events-page-hero { padding:40px 0; } .events-page-intro { font-size:17px; } }
+@media print {
+  body[data-print-events] { background:white; color:black; font-size:11pt; }
+  body[data-print-events] > :not(main),body[data-print-events] main > :not(.season-events) { display:none !important; }
+  body[data-print-events] .season-events { padding:0; background:white; border:0; }
+  body[data-print-events] .season-events .section-inner { max-width:none; padding:0; }
+  body[data-print-events] :is(.season-toolbar,.event-view-controls,.season-grid,.agenda-actions,.events-full-link) { display:none !important; }
+  body[data-print-events] .event-agenda,body[data-print-events] .event-agenda[hidden] { display:grid !important; gap:8pt; }
+  body[data-print-events] .agenda-row { break-inside:avoid; grid-template-columns:50pt 1fr; box-shadow:none; border:1px solid #999; padding:10pt; }
+  body[data-print-events] .agenda-date { color:black; background:#eee; }
+  body[data-print-events] :is(.agenda-body h3,.agenda-time,.agenda-campus,.agenda-address,.section-h2,.section-label) { color:black; }
+  body[data-print-events] .section-h2 { font-size:24pt; }
+  body[data-print-events] .agenda-body h3 { font-size:13pt; }
+}
+@media(max-width:700px) { .agenda-row { grid-template-columns:58px 1fr; gap:16px; padding:18px; } .agenda-actions { grid-column:2; flex-direction:row; flex-wrap:wrap; align-items:center; } .agenda-body h3 { font-size:19px; } .agenda-day { font-size:28px; } }
+.season-calendar,.campus-format { background:#dff3ff; color:var(--gic-navy); border-color:#b5ddf4; }
+.season-next { background:#e8f4fc; color:#114d75; border-left:3px solid var(--gic-sky); }
+.pastor-section { background:#f4f7fa; }
+.quicklinks { background:var(--gic-black); }
+.quicklinks .section-label,.quicklinks .ql-arrow { color:var(--gic-sky); }
+.quicklinks .ql-desc { color:#c2cfdb; }
+.quicklinks .ql-card:hover { background:#76d3ff12; }
+.ministries,.campus-visit-summary,.campus-events-link { background:var(--gic-ice); }
+.give-section { background:linear-gradient(110deg,var(--gic-black),var(--gic-navy)); }
+.give-section .section-label { color:var(--gic-sky); }
+.give-section .section-h2 { color:white; }
+.give-section p { color:#d4e0eb; }
+.newsletter { background:#d8f1ff; border-top:1px solid #bddff3; }
+.newsletter .section-label,.newsletter .section-h2 { color:var(--gic-navy-deep); }
+.newsletter .field-label { color:#223d55; }
+.newsletter input,.nl-form input,.contact-form input,.contact-form textarea { border-color:#afc9dc; }
+.prayer-card,.stats-band,.divider-section { background:var(--gic-navy); }
+.video-header { background:var(--gic-navy); }
+.video-footer { background:var(--gic-black); color:#dbe8f3; }
+.live-sermon-play { background:#080c12d9; border-color:var(--gic-sky); color:var(--gic-sky); }
+.video-fallback-note { color:#c7d9e7; }
+footer { background:var(--gic-black); border-top:4px solid var(--gic-sky); }
+footer :is(.footer-brand p,.footer-brand-p,.footer-contact,.footer-bottom p,.footer-col-title) { color:#bdcbd8; }
+footer .footer-links a { color:#e0e8ef; }
+footer a:hover { color:var(--gic-sky); }
+footer .social-btn { color:var(--gic-sky); border-color:#536275; }
+:is(a,button,input,select,textarea):focus-visible { outline:3px solid #1597d5; outline-offset:4px; }
+.welcome-hero :focus-visible,.nav-wrap :focus-visible,footer :focus-visible,.page-hero :focus-visible,.mobile-nav :focus-visible { outline-color:var(--gic-sky); }
+@media(max-width:800px) { .welcome-campus-bar { margin:0; padding-inline:24px; } }
+@media(max-width:600px) { .welcome-campus-bar { padding-inline:20px; } .welcome-campus-bar > a { border-bottom-color:#102b5026; } }

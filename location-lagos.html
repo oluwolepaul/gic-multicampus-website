@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lagos Online Community — Grace International Church</title>
+<meta name="description" content="Connect with the GIC Lagos online community. Find ways to join worship, contact the church, and stay informed about upcoming events."/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --lw-navy:       #0C1F3F;
+    --lw-navy-dark:  #081530;
+    --lw-blue:       #1B6FBF;
+    --lw-blue-hover: #155499;
+    --lw-blue-light: #EEF5FC;
+    --lw-white:      #FFFFFF;
+    --lw-gray-100:   #F2F4F7;
+    --lw-gray-900:   #101828;
+    --lw-text:       #1D2939;
+    --lw-text-light: #475467;
+    --lw-border:     #E4E7EC;
+    --lw-gray-500:   #667085;
+    --font:         'Nunito Sans','Helvetica Neue',Arial,sans-serif;
+    --font-display: 'Nunito','Helvetica Neue',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font);background:var(--lw-white);color:var(--lw-text);font-size:16px;line-height:1.6;}
+
+  /* TOPBAR */
+  .topbar{background:#000;padding:8px 0;text-align:center;font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);letter-spacing:0.02em;}
+  .topbar a{color:#7FB8F0;text-decoration:none;}
+  .topbar a:hover{text-decoration:underline;}
+
+  /* NAV */
+  .nav-wrap{background:var(--lw-navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.18);}
+  nav{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .nav-logo{display:flex;align-items:center;text-decoration:none;}
+  .nav-logo-img{height:48px;width:auto;object-fit:contain;display:block;}
+  .nav-logo-fallback{display:none;font-family:var(--font-display);font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.01em;}
+  .nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+  .nav-links a{display:block;padding:8px 14px;font-size:14px;font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;border-radius:6px;transition:background 0.15s,color 0.15s;}
+  .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.1);color:#fff;}
+  .nav-right{display:flex;align-items:center;gap:12px;}
+  .btn-nav-give{background:var(--lw-blue);color:#fff;font-size:14px;font-weight:700;padding:10px 22px;border-radius:6px;text-decoration:none;transition:background 0.15s;}
+  .btn-nav-give:hover{background:var(--lw-blue-hover);}
+  .btn-nav-watch{background:transparent;border:2px solid rgba(255,255,255,0.35);color:#fff;font-size:14px;font-weight:700;padding:8px 20px;border-radius:6px;text-decoration:none;transition:all 0.15s;}
+  .btn-nav-watch:hover{border-color:rgba(255,255,255,0.8);}
+
+  /* HAMBURGER */
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:transparent;border:1.5px solid rgba(255,255,255,0.3);border-radius:6px;cursor:pointer;padding:0;flex-shrink:0;}
+  .nav-hamburger span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* MOBILE DRAWER */
+  .mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;pointer-events:none;}
+  .mobile-nav.open{pointer-events:all;}
+  .mobile-nav-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.55);opacity:0;transition:opacity 0.3s ease;}
+  .mobile-nav.open .mobile-nav-overlay{opacity:1;}
+  .mobile-nav-drawer{position:absolute;top:0;right:0;width:min(320px,88vw);height:100%;background:var(--lw-navy);transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;}
+  .mobile-nav.open .mobile-nav-drawer{transform:translateX(0);}
+  .mobile-nav-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .mobile-nav-logo{font-family:var(--font-display);font-size:18px;font-weight:900;color:#fff;}
+  .mobile-nav-logo span{color:#7FB8F0;}
+  .mobile-nav-close{width:36px;height:36px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .mobile-nav-links{list-style:none;padding:12px 0;flex:1;}
+  .mobile-nav-links li a{display:block;padding:14px 24px;font-size:16px;font-weight:700;color:rgba(255,255,255,0.88);text-decoration:none;border-left:3px solid transparent;transition:background 0.15s,color 0.15s,border-color 0.15s;}
+  .mobile-nav-links li a:hover,.mobile-nav-links li a.active{background:rgba(255,255,255,0.07);color:#fff;border-left-color:var(--lw-blue);}
+  .mobile-nav-footer{padding:20px 24px;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:10px;}
+  .mobile-nav-footer a{display:block;text-align:center;padding:13px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;transition:background 0.15s;}
+  .mobile-btn-watch{border:2px solid rgba(255,255,255,0.35);color:#fff;}
+  .mobile-btn-watch:hover{border-color:rgba(255,255,255,0.7);}
+  .mobile-btn-give{background:var(--lw-blue);color:#fff;}
+  .mobile-btn-give:hover{background:var(--lw-blue-hover);}
+  .mobile-nav-contact{padding:0 24px 24px;font-size:12px;color:rgba(255,255,255,0.4);line-height:1.8;}
+  .mobile-nav-contact a{color:#7FB8F0;text-decoration:none;}
+
+  /* PAGE HERO */
+  .page-hero{padding:80px 0 72px;position:relative;overflow:hidden;}
+  .page-hero-inner{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+  .page-hero-svg{position:absolute;right:0;top:0;bottom:0;width:50%;opacity:0.1;pointer-events:none;}
+  .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:16px;}
+  .breadcrumb a{color:#7FB8F0;text-decoration:none;}
+  .breadcrumb a:hover{text-decoration:underline;}
+  .breadcrumb-sep{color:rgba(255,255,255,0.3);}
+  .page-eyebrow{display:inline-block;background:var(--lw-blue);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;border-radius:4px;margin-bottom:16px;}
+  .page-h1{font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.02em;margin-bottom:18px;}
+  .page-sub{font-size:18px;font-weight:400;color:rgba(255,255,255,0.75);max-width:560px;line-height:1.65;}
+
+  /* SECTIONS */
+  .section{padding:80px 0;}
+  .section-inner{max-width:1200px;margin:0 auto;padding:0 32px;}
+  .section-label{font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--lw-blue);margin-bottom:10px;}
+  .section-h2{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:900;color:var(--lw-gray-900);line-height:1.15;letter-spacing:-0.02em;margin-bottom:14px;}
+  .section-sub{font-size:17px;color:var(--lw-text-light);line-height:1.65;max-width:580px;font-weight:400;}
+  .btn-primary{background:var(--lw-blue);color:#fff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:6px;text-decoration:none;display:inline-block;transition:background 0.15s;letter-spacing:0.01em;}
+  .btn-primary:hover{background:var(--lw-blue-hover);}
+
+  /* INFO GRID */
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .info-card{background:var(--lw-white);border:1px solid var(--lw-border);border-radius:12px;padding:32px;margin-bottom:24px;}
+  .info-card-title{font-family:var(--font-display);font-size:18px;font-weight:900;color:var(--lw-gray-900);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .info-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--lw-border);}
+  .info-row:last-child{border-bottom:none;}
+  .info-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0;margin-top:2px;}
+  .info-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--lw-blue);display:block;margin-bottom:2px;}
+  .info-value{font-size:15px;color:var(--lw-text);font-weight:600;line-height:1.5;}
+  .info-value a{color:var(--lw-blue);text-decoration:none;}
+  .info-value a:hover{text-decoration:underline;}
+
+  /* SERVICE TIMES */
+  .service-times{background:var(--lw-blue-light);}
+  .times-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+  .time-card{background:var(--lw-white);border:1px solid var(--lw-border);border-radius:10px;padding:28px 24px;text-align:center;transition:box-shadow 0.2s,transform 0.2s;}
+  .time-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.08);transform:translateY(-2px);}
+  .time-card-icon{font-size:28px;margin-bottom:12px;}
+  .time-card-name{font-family:var(--font-display);font-size:17px;font-weight:900;color:var(--lw-gray-900);margin-bottom:6px;}
+  .time-card-time{font-size:22px;font-weight:900;color:var(--lw-blue);font-family:var(--font-display);margin-bottom:4px;}
+  .time-card-day{font-size:13px;color:var(--lw-text-light);font-weight:600;}
+
+  /* PHOTO + WELCOME */
+  .welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .welcome-img{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--lw-navy);position:relative;}
+  .welcome-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .welcome-img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:64px;font-weight:900;color:rgba(255,255,255,0.07);}
+  .welcome-text p{font-size:16px;color:var(--lw-text-light);line-height:1.8;margin-bottom:16px;}
+  .welcome-text p:last-of-type{margin-bottom:28px;}
+
+  /* MAP EMBED */
+  .map-section{background:var(--lw-gray-100);padding:0;}
+  .map-section iframe{width:100%;height:420px;border:none;display:block;}
+  .map-section .map-placeholder{width:100%;height:420px;background:var(--lw-navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+  .map-section .map-placeholder span{font-size:48px;}
+  .map-section .map-placeholder p{font-family:var(--font-display);font-size:20px;font-weight:800;color:#fff;}
+  .map-section .map-placeholder a{font-size:14px;font-weight:700;color:#7FB8F0;text-decoration:none;border-bottom:1px solid #7FB8F0;padding-bottom:2px;}
+
+  /* CONTACT FORM */
+  .contact-section{background:var(--lw-white);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .contact-form{display:flex;flex-direction:column;gap:14px;}
+  .contact-form input,.contact-form textarea{padding:14px 16px;border:1.5px solid var(--lw-border);border-radius:6px;font-family:var(--font);font-size:15px;color:var(--lw-text);background:var(--lw-white);outline:none;transition:border-color 0.15s;width:100%;}
+  .contact-form input:focus,.contact-form textarea:focus{border-color:var(--lw-blue);}
+  .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--lw-gray-500);}
+  .contact-form textarea{min-height:140px;resize:vertical;}
+  .contact-form button{background:var(--lw-blue);color:#fff;font-family:var(--font);font-size:15px;font-weight:700;padding:14px;border:none;border-radius:6px;cursor:pointer;transition:background 0.15s;}
+  .contact-form button:hover{background:var(--lw-blue-hover);}
+  .contact-info-block{background:var(--lw-navy);border-radius:12px;padding:36px 32px;}
+  .contact-info-block h3{font-family:var(--font-display);font-size:22px;font-weight:900;color:#fff;margin-bottom:24px;}
+  .cib-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;}
+  .cib-icon{font-size:20px;margin-top:2px;width:24px;text-align:center;flex-shrink:0;}
+  .cib-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#7FB8F0;display:block;margin-bottom:2px;}
+  .cib-val{font-size:14px;color:rgba(255,255,255,0.8);font-weight:600;line-height:1.5;}
+  .cib-val a{color:#7FB8F0;text-decoration:none;}
+  .cib-val a:hover{text-decoration:underline;}
+
+  /* OTHER LOCATIONS */
+  .other-locations{background:var(--lw-blue-light);}
+  .other-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px;}
+  .other-card{background:var(--lw-white);border:1px solid var(--lw-border);border-radius:12px;overflow:hidden;text-decoration:none;display:block;transition:box-shadow 0.2s,transform 0.2s;}
+  .other-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.1);transform:translateY(-3px);}
+  .other-thumb{height:140px;display:flex;align-items:center;justify-content:center;position:relative;}
+  .other-body{padding:18px 22px 22px;}
+  .other-city{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--lw-gray-900);margin-bottom:2px;}
+  .other-region{font-size:13px;color:var(--lw-text-light);font-weight:600;margin-bottom:12px;}
+  .other-link{font-size:13px;font-weight:700;color:var(--lw-blue);}
+
+  /* GIVE */
+  .give-section{background:var(--lw-navy);padding:80px 0;}
+  .give-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .give-text .section-h2{color:#fff;margin-bottom:16px;}
+  .give-text .section-label{color:#7FB8F0;}
+  .give-text p{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:32px;}
+  .give-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:28px;}
+  .give-box p{font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:24px;line-height:1.6;}
+  .btn-give{display:block;background:var(--lw-blue);color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:6px;text-decoration:none;transition:background 0.15s;text-align:center;}
+  .btn-give:hover{background:var(--lw-blue-hover);}
+
+  /* NEWSLETTER */
+  .newsletter{background:var(--lw-blue-light);padding:72px 0;}
+  .newsletter-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .newsletter-text .section-h2{margin-bottom:12px;}
+  .newsletter-text p{font-size:16px;color:var(--lw-text-light);line-height:1.65;}
+  .newsletter-form{display:flex;flex-direction:column;gap:12px;}
+  .newsletter-form input{padding:14px 16px;border:1.5px solid var(--lw-border);border-radius:6px;font-family:var(--font);font-size:15px;color:var(--lw-text);background:var(--lw-white);outline:none;transition:border-color 0.15s;}
+  .newsletter-form input:focus{border-color:var(--lw-blue);}
+  .newsletter-form input::placeholder{color:var(--lw-gray-500);}
+  .newsletter-form button{background:var(--lw-blue);color:#fff;font-family:var(--font);font-size:15px;font-weight:700;padding:14px;border:none;border-radius:6px;cursor:pointer;transition:background 0.15s;}
+  .newsletter-form button:hover{background:var(--lw-blue-hover);}
+
+  /* FOOTER */
+  footer{background:var(--lw-navy-dark);padding:64px 0 0;}
+  .footer-inner{max-width:1200px;margin:0 auto;padding:0 32px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .footer-brand-name{font-family:var(--font-display);font-size:22px;font-weight:900;color:#fff;margin-bottom:14px;}
+  .footer-brand-name span{color:#7FB8F0;}
+  .footer-brand p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:20px;}
+  .footer-contact{font-size:13px;color:rgba(255,255,255,0.5);line-height:2;}
+  .footer-contact a{color:#7FB8F0;text-decoration:none;}
+  .footer-col-title{font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:20px;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-links a{font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;font-weight:600;transition:color 0.15s;}
+  .footer-links a:hover{color:#7FB8F0;}
+  .footer-bottom{padding:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .footer-bottom p{font-size:13px;color:rgba(255,255,255,0.4);}
+  .social-row{display:flex;gap:10px;}
+  .social-btn{width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:all 0.15s;font-weight:700;}
+  .social-btn:hover{border-color:#7FB8F0;color:#7FB8F0;}
+
+  /* FADE */
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+
+  /* RESPONSIVE */
+  @media(max-width:960px){
+    nav{padding:0 20px;}
+    .nav-links,.nav-right{display:none;}
+    .nav-hamburger{display:flex;}
+    .mobile-nav{display:block;}
+    .section-inner,.give-inner,.newsletter-inner,.footer-inner{padding:0 20px;}
+    .info-grid,.welcome-grid,.contact-grid,.give-inner,.newsletter-inner{grid-template-columns:1fr;gap:32px;}
+    .times-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+    .other-grid{grid-template-columns:1fr 1fr;}
+    .page-hero{padding:60px 0 52px;}
+  }
+  @media(max-width:600px){
+    .times-grid,.other-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .topbar{font-size:11px;padding:6px 12px;}
+    .page-h1{font-size:36px;}
+  }
+
+  /* ===== DESKTOP DROPDOWN ===== */
+  .nav-links li { position: relative; }
+  .nav-links li.has-dropdown > a::after {
+    content: '';
+    display: inline-block;
+    width: 0; height: 0;
+    margin-left: 6px; vertical-align: middle;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid rgba(255,255,255,0.7);
+    transition: transform 0.2s;
+  }
+  .nav-links li.has-dropdown:hover > a::after { transform: rotate(180deg); }
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 200px;
+    background: #0C1F3F;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    padding: 6px 0;
+    z-index: 300;
+    list-style: none;
+  }
+  .nav-links li.has-dropdown:hover .nav-dropdown { display: block; }
+  .nav-dropdown li a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 18px;
+    font-size: 14px; font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    border-radius: 0;
+    border-left: 3px solid transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-dropdown li a:hover { background: rgba(255,255,255,0.08); color: #fff; border-left-color: #1B6FBF; }
+  .nav-dropdown li a .dd-flag { font-size: 16px; }
+  .nav-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px; left: 18px;
+    width: 10px; height: 10px;
+    background: #0C1F3F;
+    border-left: 1px solid rgba(255,255,255,0.12);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    transform: rotate(45deg);
+  }
+
+  /* ===== MOBILE ACCORDION ===== */
+  .mobile-nav-links li.mob-has-dropdown > a {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .mob-dd-arrow {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px;
+    font-size: 12px; color: rgba(255,255,255,0.5);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .mobile-nav-links li.mob-has-dropdown.open > a .mob-dd-arrow { transform: rotate(180deg); }
+  .mob-submenu {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(0,0,0,0.2);
+  }
+  .mobile-nav-links li.mob-has-dropdown.open .mob-submenu { max-height: 200px; }
+  .mob-submenu li a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 24px 12px 36px;
+    font-size: 14px; font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .mob-submenu li a:hover { background: rgba(255,255,255,0.05); color: #fff; border-left-color: #1B6FBF; }
+
+</style>
+<link rel="stylesheet" href="site.css"/>
+<link rel="stylesheet" href="events.css"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Lagos Online Community — Grace International Church"/>
+<meta property="og:description" content="Connect with the GIC Lagos online community. Find ways to join worship, contact the church, and stay informed about upcoming events."/>
+<link rel="stylesheet" href="theme.css"/>
+</head>
+<body>
+<a class="skip-link" href="#mainContent">Skip to content</a>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  📞 24/7 Prayer Line: <a href="tel:2815647223">281-56-GRACE (47223)</a> &nbsp;·&nbsp; ✉️ <a href="mailto:info@gicglobal.org"><span class="__cf_email__" data-cfemail="a4cdcac2cbe4c3cdc7c3c8cbc6c5c88acbd6c3">info@gicglobal.org</span></a> &nbsp;·&nbsp; 💬 Text: <a href="sms:3467352827">(346) 735-2827</a>
+</div>
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="images/logowhite.png" alt="GIC Global" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';" />
+
+      <span class="nav-logo-fallback">GIC <span style="color:#7FB8F0;">Global</span></span>
+    </a>
+    <ul class="nav-links">
+<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+<li class="has-dropdown"><a href="#">Locations</a><ul class="nav-dropdown"><li><a href="location-texas.html">GIC Houston</a></li><li><a href="location-newyork.html">GIC New York</a></li><li><a href="location-lagos.html">GIC Lagos</a></li></ul></li>
+<li><a href="events.html">Events</a></li><li><a href="ministries.html">Ministries</a></li><li><a href="sermons.html">Sermons</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <div class="nav-right">
+      <a href="https://www.youtube.com/@GicglobalTX" target="_blank" class="btn-nav-watch" rel="noopener">▶ Watch Live</a>
+      <a href="give.html" class="btn-nav-give">Give</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-logo">GIC <span>Global</span></span>
+      <button class="mobile-nav-close" id="mobileClose">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+<li class="mob-has-dropdown"><a href="#"><span>Locations</span><span class="mob-dd-arrow" aria-hidden="true">▾</span></a><ul class="mob-submenu"><li><a href="location-texas.html">GIC Houston</a></li><li><a href="location-newyork.html">GIC New York</a></li><li><a href="location-lagos.html">GIC Lagos</a></li></ul></li>
+<li><a href="events.html">Events</a></li><li><a href="ministries.html">Ministries</a></li><li><a href="sermons.html">Sermons</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <div class="mobile-nav-footer">
+      <a href="https://www.youtube.com/@GicglobalTX" target="_blank" class="mobile-btn-watch" rel="noopener">▶ Watch Live</a>
+      <a href="give.html" class="mobile-btn-give">Give Online</a>
+    </div>
+    <div class="mobile-nav-contact">
+      📞 <a href="tel:2815647223">281-56-GRACE (47223)</a><br/>
+      ✉️ <a href="mailto:info@gicglobal.org"><span class="__cf_email__" data-cfemail="6801060e07280f010b0f04070a090446071a0f">info@gicglobal.org</span></a>
+    </div>
+  </div>
+</div>
+
+<main id="mainContent">
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <svg class="page-hero-svg" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+    <g fill="white" opacity="0.6">
+      <rect x="275" y="50" width="30" height="200" rx="6"/>
+      <rect x="200" y="110" width="180" height="30" rx="6"/>
+      <circle cx="290" cy="160" r="90" fill="none" stroke="white" stroke-width="2"/>
+      <circle cx="290" cy="160" r="150" fill="none" stroke="white" stroke-width="1" opacity="0.4"/>
+      <polygon points="150,350 290,260 430,350" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/>
+    </g>
+  </svg>
+  <div class="page-hero-inner">
+    <nav class="site-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></a></li><li><a href="index.html#locations">Campuses</a></li><li><span aria-current="page">Lagos</span></li></ol></nav>
+    <div class="page-eyebrow">Lagos, Nigeria · West Africa</div>
+    <h1 class="page-h1">Grace Int'l Church<br/>Lagos</h1>
+    <p class="page-sub">GIC Lagos is our vibrant West African campus, connecting believers across Nigeria and beyond with the transforming grace of God — every Sunday online.</p>
+  </div>
+</section>
+
+<!-- WELCOME + INFO -->
+<section class="section fade-up">
+  <div class="section-inner">
+    <div class="welcome-grid">
+      <div class="welcome-img">
+        <img src="https://gicglobal.org/wp-content/uploads/2024/03/online.jpg" alt="GIC Lagos" onerror="this.style.display='none';"/>
+        <div class="welcome-img-placeholder">LA</div>
+      </div>
+      <div class="welcome-text">
+        <div class="section-label">Welcome</div>
+        <h2 class="section-h2">Welcome to<br/>GIC Lagos</h2>
+        <p>GIC Lagos is Grace International Church's African campus, serving the Lagos community and beyond through online worship, prayer, and the ministry of the Word.</p>
+        <p>Join us every Sunday online at 9:00 AM. No matter where you are in Nigeria or across Africa, you are welcome to worship with us.</p>
+        <div class="info-card" style="margin-top:8px;">
+          <div class="info-row">
+            <span class="info-icon">📍</span>
+            <div><span class="info-label">Address</span><span class="info-value">Online Campus · Lagos, Nigeria</span></div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">📞</span>
+            <div><span class="info-label">Phone</span><span class="info-value"><a href="tel:2348180148116">+234 818 014 8116</a></span></div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">✉️</span>
+            <div><span class="info-label">Email</span><span class="info-value"><a href="mailto:info@gicglobal.org"><span class="__cf_email__" data-cfemail="ddb1bcbab2ae9dbab4bebab1b2bfbcb1f3b2afba">info@gicglobal.org</span></a></span></div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">🌐</span>
+            <div><span class="info-label">Website</span><span class="info-value"><a href="https://gicglobal.org/giclagos" target="_blank" rel="noopener">gicglobal.org/giclagos</a></span></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE TIMES -->
+<section class="section service-times fade-up">
+  <div class="section-inner">
+    <div class="section-label">Join Us</div>
+    <h2 class="section-h2">Service Times</h2>
+    <p class="section-sub">We'd love to see you in person. Here's when we gather for worship.</p>
+    <div class="times-grid">
+        <div class="time-card fade-up">
+          <div class="time-card-icon">🕘</div>
+          <div class="time-card-name">Sunday Service</div>
+          <div class="time-card-time">9:00 AM</div>
+          <div class="time-card-day">Every Sunday · Online</div>
+        </div>
+        <div class="time-card fade-up">
+          <div class="time-card-icon">🌐</div>
+          <div class="time-card-name">Online Broadcast</div>
+          <div class="time-card-time">Live</div>
+          <div class="time-card-day">YouTube & Facebook</div>
+        </div>
+        <div class="time-card fade-up">
+          <div class="time-card-icon">🙏</div>
+          <div class="time-card-name">Prayer Line</div>
+          <div class="time-card-time">24/7</div>
+          <div class="time-card-day">Always Available</div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO -->
+<section class="section fade-up" style="background:var(--lw-gray-100);padding:56px 0;">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="welcome-img" style="aspect-ratio:16/9;border-radius:12px;">
+        <img src="images/previews/photo-lag1-png.jpg" alt="GIC Lagos" onerror="this.style.display='none';" width="1000" height="666" decoding="async" loading="lazy"/>
+        <div class="welcome-img-placeholder">LA</div>
+      </div>
+      <div class="welcome-img" style="aspect-ratio:16/9;border-radius:12px;">
+        <img src="images/previews/photo-lag2-png.jpg" alt="GIC Lagos" onerror="this.style.display='none';" width="1000" height="666" decoding="async" loading="lazy"/>
+        <div class="welcome-img-placeholder">LA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section fade-up">
+  <div class="map-placeholder">
+    <span>📍</span>
+    <p>Online Campus · Lagos, Nigeria</p>
+    <a href="contact.html">Ask about joining online →</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section contact-section fade-up">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-h2">Leave Us<br/>a Message</h2>
+        <p class="section-sub" style="margin-bottom:32px;">Our team would love to hear from you. Send us a message and we'll get back to you as soon as possible.</p>
+        <div class="contact-form">
+          <input type="text" placeholder="Your full name"/>
+          <input type="email" placeholder="Your email address"/>
+          <input type="tel" placeholder="Your phone number"/>
+          <textarea placeholder="Your message"></textarea>
+          <button type="submit">Prepare email message</button>
+        </div>
+      </div>
+      <div class="contact-info-block">
+        <h3>Contact Information</h3>
+        <div class="cib-row">
+          <span class="cib-icon">📍</span>
+          <div><span class="cib-label">Address</span><span class="cib-val">Online Campus · Lagos, Nigeria</span></div>
+        </div>
+        <div class="cib-row">
+          <span class="cib-icon">📞</span>
+          <div><span class="cib-label">Phone</span><span class="cib-val"><a href="tel:+234 818 014 8116">+234 818 014 8116</a></span></div>
+        </div>
+        <div class="cib-row">
+          <span class="cib-icon">✉️</span>
+          <div><span class="cib-label">Email</span><span class="cib-val"><a href="mailto:info@gicglobal.org"><span class="__cf_email__" data-cfemail="9ff3fef8f0ecdff8f6fcf8f3f0fdfef3b1f0edf8">info@gicglobal.org</span></a></span></div>
+        </div>
+        <div class="cib-row">
+          <span class="cib-icon">🌐</span>
+          <div><span class="cib-label">Website</span><span class="cib-val"><a href="https://gicglobal.org/giclagos" target="_blank" rel="noopener">gicglobal.org/giclagos</a></span></div>
+        </div>
+        <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);">
+          <div class="section-label" style="color:#7FB8F0;margin-bottom:12px;">24/7 Prayer Line</div>
+          <div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:#fff;">281-56-GRACE</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-top:4px;">(281) 564-7223</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER LOCATIONS -->
+<section class="section other-locations fade-up">
+  <div class="section-inner">
+    <div class="section-label">GIC Global</div>
+    <h2 class="section-h2">Explore Other Campuses</h2>
+    <p class="section-sub">Grace Int'l Church is a global family. Find a campus near you.</p>
+    <div class="other-grid">
+      <a href="location-texas.html" class="other-card fade-up">
+        <div class="other-thumb" style="background:linear-gradient(135deg,#0c1f3f,#1b3a6b);">
+          <span style="font-family:var(--font-display);font-size:48px;font-weight:900;color:rgba(255,255,255,0.12);">TX</span>
+          <span style="position:absolute;top:16px;left:16px;font-size:22px;">🇺🇸</span>
+        </div>
+        <div class="other-body">
+          <div class="other-city">Houston, Texas</div>
+          <div class="other-region">15401 Bellaire Blvd, Houston TX</div>
+          <span class="other-link">Visit Campus →</span>
+        </div>
+      </a>
+      <a href="location-newyork.html" class="other-card fade-up">
+        <div class="other-thumb" style="background:linear-gradient(135deg,#141428,#252550);">
+          <span style="font-family:var(--font-display);font-size:48px;font-weight:900;color:rgba(255,255,255,0.12);">NY</span>
+          <span style="position:absolute;top:16px;left:16px;font-size:22px;">🗽</span>
+        </div>
+        <div class="other-body">
+          <div class="other-city">New York</div>
+          <div class="other-region">770 Barry Street, Bronx NY</div>
+          <span class="other-link">Visit Campus →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- GIVE -->
+<section class="give-section fade-up">
+  <div class="give-inner">
+    <div class="give-text">
+      <div class="section-label">Support the Vision</div>
+      <h2 class="section-h2">Give &amp; Make<br/>a Difference</h2>
+      <p>Your intercessions, involvement, and financial investment help us carry out this heavenly mandate and reach more lives around the world.</p>
+      <a href="give.html" class="btn-primary">Give Online</a>
+    </div>
+    <div class="give-box">
+      <p>"Do more together than you can alone. If any of our Ministries or Outreaches have been a blessing, you have the opportunity — and spiritual responsibility — to help us reach others too."</p>
+      <a href="give.html" class="btn-give">Give Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter fade-up">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <div class="section-label">Stay Connected</div>
+      <h2 class="section-h2">Get the Weekly Word</h2>
+      <p>Subscribe to receive weekly encouragement, sermon notes, and event updates straight to your inbox.</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="text" placeholder="Your full name"/>
+      <input type="email" placeholder="Your email address"/>
+      <button type="submit">Subscribe to Weekly Word</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+	  <img src="images/logowhite.png" alt="GIC Global" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';" />
+        <!--<div class="footer-brand-name">GIC <span>Global</span></div>  -->
+        <p>Grace Int'l Church — Home of Transformed Vessels, giving your life meaning. A non-denominational, multicultural church across 3 global locations.</p>
+        <div class="footer-contact">
+          <div>📍 15401 Bellaire Blvd, Houston, TX 77083</div>
+          <div>📞 <a href="tel:2815647223">281-56-GRACE (47223)</a></div>
+          <div>✉️ <a href="mailto:info@gicglobal.org"><span class="__cf_email__" data-cfemail="e0898e868fa0878983878c8f82818cce8f9287">info@gicglobal.org</span></a></div>
+          <div>💬 Text: <a href="sms:3467352827">(346) 735-2827</a></div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="events.html">Events</a></li>
+<li><a href="ministries.html">Ministries</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Locations</div>
+        <ul class="footer-links">
+          <li><a href="location-texas.html">GIC Texas</a></li>
+          <li><a href="location-newyork.html">GIC New York</a></li>
+          <li><a href="location-lagos.html">GIC Lagos</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <ul class="footer-links">
+          <li><a href="https://www.youtube.com/@GicglobalTX" target="_blank" rel="noopener">Watch Live</a></li>
+          <li><a href="sermons.html">Sermon Library</a></li>
+          <li><a href="https://linktr.ee/draaajim_" target="_blank" rel="noopener">Podcasts</a></li>
+          <li><a href="give.html">Give Online</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Grace International Church. All rights reserved.</p>
+      <div class="social-row">
+        <a href="https://www.youtube.com/@GicglobalTX" class="social-btn" target="_blank" rel="noopener">▶</a>
+        <a href="https://facebook.com/gicglobaltx" class="social-btn">f</a>
+        <a href="https://twitter.com/gicglobaltx" class="social-btn">in</a>
+        <a href="https://instagram.com/gicglobaltx" class="social-btn">ig</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  // Fade in
+  var obs = new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting) x.target.classList.add('visible'); }); },{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el); });
+  
+  // ── LOCATION CONTACT FORM ──
+  document.querySelectorAll('.contact-form button').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var form = btn.closest('.contact-form') || btn.parentElement;
+      var nameEl  = form.querySelector('input[type="text"]');
+      var emailEl = form.querySelector('input[type="email"]');
+      var telEl   = form.querySelector('input[type="tel"]');
+      var msgEl   = form.querySelector('textarea');
+      var name  = nameEl  ? nameEl.value.trim()  : '';
+      var email = emailEl ? emailEl.value.trim() : '';
+      var tel   = telEl   ? telEl.value.trim()   : '';
+      var msg   = msgEl   ? msgEl.value.trim()   : '';
+      if (!name || !email || !msg) { alert('Please fill in your name, email and message.'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+      var subject = encodeURIComponent('GIC Message from '+name);
+      var body = encodeURIComponent('Name: '+name+'\nEmail: '+email+(tel?'\nPhone: '+tel:'')+'\n\nMessage:\n'+msg);
+      window.location.href = 'mailto:gicweb@gmail.com?subject='+subject+'&body='+body;
+      btn.textContent = 'Draft requested — send it in your email app'; btn.style.background='#00a854'; btn.disabled = false;
+    });
+  });
+  
+  // ── NEWSLETTER SUBSCRIBE ──
+  document.querySelectorAll('.newsletter-form button, .nl-form button').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var form = btn.closest('section') || btn.parentElement;
+      var emailEl = form.querySelector('input[type="email"]');
+      var nameEl  = form.querySelector('input[type="text"]');
+      var email = emailEl ? emailEl.value.trim() : '';
+      var name  = nameEl  ? nameEl.value.trim()  : '';
+      if (!email) { alert('Please enter your email address.'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+      var subject = encodeURIComponent('Weekly Word Subscription');
+      var body = encodeURIComponent('New subscriber:\nName: '+(name||'Not provided')+'\nEmail: '+email);
+      window.location.href = 'mailto:gicglobalonline@gmail.com?subject='+subject+'&body='+body;
+      btn.textContent = 'Draft requested — send it in your email app'; btn.style.background='#00a854'; btn.disabled = false;
+    });
+  });
+  
+  // ── MOBILE NAV ──
+  var hbg  = document.getElementById('hamburger');
+  var mnav = document.getElementById('mobileNav');
+  var mcls = document.getElementById('mobileClose');
+  var ovl  = document.getElementById('mobileOverlay');
+  function openMenu()  { if(mnav&&hbg){ mnav.classList.add('open'); hbg.classList.add('open'); document.body.style.overflow='hidden'; } }
+  function closeMenu() { if(mnav&&hbg){ mnav.classList.remove('open'); hbg.classList.remove('open'); document.body.style.overflow=''; } }
+  if (hbg)  hbg.addEventListener('click', openMenu);
+  if (mcls) mcls.addEventListener('click', closeMenu);
+  if (ovl)  ovl.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-nav-links a:not(.mob-has-dropdown > a), .mobile-nav-footer a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+  // Mobile accordion
+  document.querySelectorAll('.mob-has-dropdown > a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var li = a.parentElement; var wasOpen = li.classList.contains('open');
+      document.querySelectorAll('.mob-has-dropdown').forEach(function(el){ el.classList.remove('open'); });
+      if (!wasOpen) li.classList.add('open');
+    });
+  });
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var t = document.getElementById(a.getAttribute('href').slice(1));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
+    });
+  });
+})();
+</script>
+<script src="campus-data.js"></script>
+<script src="event-data.js"></script>
+<script src="site.js"></script>
+<script src="events.js"></script>
+</body>
+</html>

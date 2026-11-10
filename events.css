@@ -1,0 +1,31 @@
+.season-events { background:#f4f7fb; scroll-margin-top:90px; }
+.season-toolbar { display:flex; flex-wrap:wrap; align-items:flex-end; gap:20px; padding:24px; margin-top:30px; background:white; border:1px solid var(--lw-border); border-radius:12px; }
+.season-toolbar[hidden], .season-card[hidden], .season-empty[hidden] { display:none; }
+.season-toolbar label { display:block; font-size:13px; font-weight:800; margin-bottom:6px; }
+.season-toolbar select { font:inherit; color:var(--lw-navy); background:white; border:1px solid #a6b2c3; border-radius:6px; padding:10px 36px 10px 12px; max-width:100%; }
+.season-toolbar p { margin-left:auto; color:var(--lw-text-light); font-size:14px; padding-bottom:10px; }
+.season-time-note { font-size:13px; color:var(--lw-text-light); margin:16px 0 24px; }
+.season-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.season-card { background:white; border:1px solid var(--lw-border); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 4px 18px #0c1f3f06; }
+.season-flyer { display:flex; align-items:center; justify-content:center; background:#e7edf5; padding:12px; height:320px; }
+.season-flyer img { display:block; width:100%; height:100%; object-fit:contain; }
+.season-body { padding:24px; display:flex; flex-direction:column; flex:1; gap:12px; font-size:14px; color:var(--lw-text-light); }
+.season-badge { color:var(--lw-blue); font-size:11px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; }
+.season-body h3 { font:900 24px/1.2 var(--font-display); color:var(--lw-navy); overflow-wrap:anywhere; }
+.season-date { color:var(--lw-navy); font-weight:800; }
+.season-body ul { padding-left:18px; }
+.season-body li + li { margin-top:7px; }
+.season-address { border-top:1px solid var(--lw-border); padding-top:14px; }
+.season-actions { margin-top:auto; padding-top:8px; display:flex; flex-wrap:wrap; gap:14px; }
+.season-actions a, .season-empty a { color:var(--lw-blue); font-weight:800; text-underline-offset:4px; }
+.season-calendar { font:800 14px var(--font); color:var(--lw-blue); border:1px solid #b6cde4; border-radius:6px; background:#eef5fc; padding:9px 12px; cursor:pointer; }
+.season-next { color:#105d43; background:#edf8f2; padding:8px 10px; border-radius:6px; font-size:13px; font-weight:800; }
+.season-card { scroll-margin-top:100px; }
+.season-card:target { outline:3px solid var(--lw-blue); outline-offset:4px; }
+.season-reset { background:transparent; border:0; color:var(--lw-blue); font:700 14px var(--font); padding:10px; cursor:pointer; text-decoration:underline; text-underline-offset:4px; }
+.season-reset:disabled { opacity:.5; cursor:default; text-decoration:none; }
+.campus-events-link .season-grid { margin-bottom:28px; }
+.season-events :is(a,select):focus-visible { outline:3px solid var(--lw-blue); outline-offset:4px; }
+.season-empty { padding:36px 24px; background:white; border-radius:12px; text-align:center; }
+@media(max-width:1000px) { .season-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:640px) { .season-grid { grid-template-columns:1fr; } .season-toolbar { align-items:stretch; gap:16px; padding:20px; } .season-toolbar > div { width:100%; } .season-toolbar select { width:100%; } .season-toolbar p { margin:0; padding:0; } .season-flyer { height:360px; } }
